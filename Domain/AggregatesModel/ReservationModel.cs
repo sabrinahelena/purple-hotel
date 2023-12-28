@@ -3,11 +3,11 @@
 public class ReservationModel
 {
     public int Id { get; init; }
-    public string Code { get; init; } = string.Empty;
-    public DateTime CheckinDate { get; init; }
-    public DateTime CheckoutDate { get; init; }
-    public int GuestsNumber { get; init; }
-    public int Status { get; init; }
+    public string Code { get; private set; } = string.Empty;
+    public DateTime CheckinDate { get; private set; }
+    public DateTime CheckoutDate { get; private set; }
+    public int GuestsNumber { get; private set; }
+    public int Status { get; private set; }
     public RoomModel Room { get; init; }
     public PaymentModel Payment { get; init; }
 }

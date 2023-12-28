@@ -3,9 +3,9 @@
 public class PaymentModel
 {
     public int Id { get; init; }
-    public int PaymentMethod { get; init; }
-    public double TotalAmount { get; init; }
-    public int Status { get; init; }
-    public int ReservationId { get; init; }
+    public int PaymentMethod { get; private set; }
+    public double TotalAmount { get; private set; }
+    public int Status { get; private set; }
+    public int ReservationId { get; private set; }
     public ReservationModel Reservation { get; init; }
 }

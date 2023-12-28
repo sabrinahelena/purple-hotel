@@ -7,25 +7,25 @@ public class RoomModel
     /// <summary>
     /// RoomNumber
     /// </summary>
-    public int Number { get; init; }
+    public int Number { get; private set; }
 
     /// <summary>
     /// RoomType
     /// </summary>
-    public int Type { get; init; }
+    public int Type { get; private set; }
 
     /// <summary>
     /// Price per night
     /// </summary>
-    public double Price { get; init; }
+    public double Price { get; private set; }
 
     /// <summary>
     /// Availability
     /// </summary>
-    public bool Available { get; init; }
-    public string Description { get; init; } = string.Empty;
-    public int HotelId { get; init; }
-    public int ReservationId { get; init; }
+    public bool Available { get; private set; }
+    public string Description { get; private set; } = string.Empty;
+    public int HotelId { get; private set; }
+    public int ReservationId { get; private set; }
     public ReservationModel Reservation { get; init; }
 
 }

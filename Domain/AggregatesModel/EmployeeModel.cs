@@ -3,14 +3,14 @@
 public class EmployeeModel
 {
     public int Id { get; init; }
-    public string Name { get; init; } = string.Empty;
-    public string LastName { get; init; } = string.Empty;
-    public int Position { get; init; }
-    public DateTime HiringDate { get; init; }
-    public string Contact { get; init; } = string.Empty;
-    public string Phone { get; init; } = string.Empty;
-    public string Email { get; init; } = string.Empty;
-    public double Salary { get; init; }
-    public int? WorkingHours { get; init; }
-    public int HotelId { get; init; }
+    public string Name { get; private set; } = string.Empty;
+    public string LastName { get; private set; } = string.Empty;
+    public int Position { get; private set; }
+    public DateTime HiringDate { get; private set; }
+    public string Contact { get; private set; } = string.Empty;
+    public string Phone { get; private set; } = string.Empty;
+    public string Email { get; private set; } = string.Empty;
+    public double Salary { get; private set; }
+    public int? WorkingHours { get; private set; }
+    public int HotelId { get; private set; }
 }
