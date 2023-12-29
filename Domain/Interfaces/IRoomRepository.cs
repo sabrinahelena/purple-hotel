@@ -1,6 +1,6 @@
 ﻿using Domain.AggregatesModel;
 
-namespace Infrastructure.Repositories.Interfaces;
+namespace Domain.Interfaces;
 
 public interface IRoomRepository
 {

@@ -2,12 +2,12 @@
 
 public class ReservationModel
 {
-    public int Id { get; init; }
-    public string Code { get; private set; } = string.Empty;
-    public DateTime CheckinDate { get; private set; }
-    public DateTime CheckoutDate { get; private set; }
-    public int GuestsNumber { get; private set; }
-    public int Status { get; private set; }
-    public RoomModel Room { get; init; }
-    public PaymentModel Payment { get; init; }
+    public int Id { get; set; }
+    public string Code { get; set; } = string.Empty;
+    public DateTime CheckinDate { get; set; }
+    public DateTime CheckoutDate { get; set; }
+    public int GuestsNumber { get; set; }
+    public int Status { get; set; }
+    public RoomModel Room { get; set; }
+    public PaymentModel Payment { get; set; }
 }

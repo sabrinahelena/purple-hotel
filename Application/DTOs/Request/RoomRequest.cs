@@ -25,5 +25,5 @@ public class RoomRequest
     public bool Available { get; init; }
     public string Description { get; init; } = string.Empty;
     public int HotelId { get; init; }
-    public int ReservationId { get; init; }
+    public int? ReservationId { get; init; }
 }

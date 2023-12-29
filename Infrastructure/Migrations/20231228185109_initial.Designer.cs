@@ -4,6 +4,7 @@ using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(PurpleHotelContext))]
-    partial class PurpleHotelContextModelSnapshot : ModelSnapshot
+    [Migration("20231228185109_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -286,7 +289,7 @@ namespace Infrastructure.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<int?>("ReservationId")
+                    b.Property<int>("ReservationId")
                         .HasColumnType("int");
 
                     b.Property<int>("Type")
@@ -297,8 +300,7 @@ namespace Infrastructure.Migrations
                     b.HasIndex("HotelId");
 
                     b.HasIndex("ReservationId")
-                        .IsUnique()
-                        .HasFilter("[ReservationId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Room");
                 });
@@ -344,7 +346,9 @@ namespace Infrastructure.Migrations
 
                     b.HasOne("Domain.AggregatesModel.ReservationModel", "Reservation")
                         .WithOne("Room")
-                        .HasForeignKey("Domain.AggregatesModel.RoomModel", "ReservationId");
+                        .HasForeignKey("Domain.AggregatesModel.RoomModel", "ReservationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Reservation");
                 });

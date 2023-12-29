@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(PurpleHotelContext))]
-    [Migration("20231228150128_initial")]
-    partial class initial
+    [Migration("20231229191554_v2")]
+    partial class v2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -289,7 +289,7 @@ namespace Infrastructure.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<int>("ReservationId")
+                    b.Property<int?>("ReservationId")
                         .HasColumnType("int");
 
                     b.Property<int>("Type")
@@ -300,7 +300,8 @@ namespace Infrastructure.Migrations
                     b.HasIndex("HotelId");
 
                     b.HasIndex("ReservationId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[ReservationId] IS NOT NULL");
 
                     b.ToTable("Room");
                 });
@@ -346,9 +347,7 @@ namespace Infrastructure.Migrations
 
                     b.HasOne("Domain.AggregatesModel.ReservationModel", "Reservation")
                         .WithOne("Room")
-                        .HasForeignKey("Domain.AggregatesModel.RoomModel", "ReservationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Domain.AggregatesModel.RoomModel", "ReservationId");
 
                     b.Navigation("Reservation");
                 });

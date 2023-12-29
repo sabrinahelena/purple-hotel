@@ -1,5 +1,5 @@
 ﻿using Domain.AggregatesModel;
-using Infrastructure.Repositories.Interfaces;
+using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
