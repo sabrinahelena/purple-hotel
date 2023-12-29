@@ -1,4 +1,7 @@
 
+using Application;
+using Microsoft.Extensions.Configuration;
+
 namespace PurpleHotel
 {
     public class Program
@@ -9,11 +12,11 @@ namespace PurpleHotel
 
             // Add services to the container.
 
+            builder.Services.ApplicationDependencyInjection();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -22,6 +25,8 @@ namespace PurpleHotel
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+           
 
             app.UseHttpsRedirection();
 

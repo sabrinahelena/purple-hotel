@@ -27,12 +27,17 @@ public static class ReservationMapper
             };
         }
 
-        if (request.Room != null)
-        {
-            reservationModel.Room.Id = request.Room.Id;
-            reservationModel.Room.HotelId = request.Room.HotelId;
-            reservationModel.Room.Number = request.Room.Number;
-        }
+        //logica para atualizar room associando reservationId
+        //if (request.Room != null)
+        //{
+        //    reservationModel.Room = new RoomModel
+        //    {
+        //        Id = request.Room.Id
+        //    };
+        //    //reservationModel.Room.Id = request.Room.Id;
+        //    //reservationModel.Room.HotelId = request.Room.HotelId;
+        //    //reservationModel.Room.Number = request.Room.Number;
+        //}
 
         return reservationModel;
     }
